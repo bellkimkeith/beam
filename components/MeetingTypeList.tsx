@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import MeetingTypeCard from "./MeetingTypeCard";
 import { meetingtypes } from "@/constants";
 import { useRouter } from "next/navigation";
+import MeetingModal from "./MeetingModal";
 
 const MeetingTypeList = () => {
   const [meetingState, setMeetingState] = useState<
@@ -31,6 +32,8 @@ const MeetingTypeList = () => {
     }
   };
 
+  const startMeeting = () => {};
+
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
       {meetingtypes.map((type, index) => {
@@ -45,6 +48,14 @@ const MeetingTypeList = () => {
           />
         );
       })}
+      <MeetingModal
+        isOpen={meetingState === "isInstantMeeting"}
+        onClose={() => setMeetingState(undefined)}
+        title="New Meeting"
+        className="text-center"
+        buttonText="Start Meeting"
+        handleClick={startMeeting}
+      />
     </section>
   );
 };
