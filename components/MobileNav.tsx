@@ -13,7 +13,6 @@ import { usePathname } from "next/navigation";
 
 const MobileNav = () => {
   const pathName = usePathname();
-  console.log(pathName);
 
   return (
     <section className="w-full max-w-64">
