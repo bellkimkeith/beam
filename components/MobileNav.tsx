@@ -16,7 +16,7 @@ const MobileNav = () => {
   console.log(pathName);
 
   return (
-    <section className="w-full max-w-[264px]">
+    <section className="w-full max-w-64">
       <Sheet>
         <SheetTrigger asChild>
           <Image
@@ -31,7 +31,7 @@ const MobileNav = () => {
           <SheetClose asChild>
             <Link href="/" className="flex gap-1 items-center border-b pb-5">
               <Image
-                src="icons/beam.svg"
+                src="icons/logo.svg"
                 height={50}
                 width={50}
                 alt="Beam logo"

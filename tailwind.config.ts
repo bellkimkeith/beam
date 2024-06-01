@@ -23,6 +23,9 @@ const config = {
           1: "#31363F",
           2: "#222831",
         },
+        sky: {
+          1: "#C0DEFF",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
