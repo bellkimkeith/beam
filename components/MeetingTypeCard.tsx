@@ -6,7 +6,6 @@ type MeetingTypeCardProps = {
   header: string;
   subHeader: string;
   icon: string;
-  color: string;
   handleClick: (header: string) => void;
 };
 
@@ -14,9 +13,26 @@ const MeetingTypeCard = ({
   header,
   subHeader,
   icon,
-  color,
   handleClick,
 }: MeetingTypeCardProps) => {
+  let color = "";
+  switch (header) {
+    case "New Meeting":
+      color = "bg-orange-1";
+      break;
+    case "Join Meeting":
+      color = "bg-blue-500";
+      break;
+    case "Schedule Meeting":
+      color = "bg-purple-1";
+      break;
+    case "View Recordings":
+      color = "bg-yellow-1";
+      break;
+
+    default:
+      break;
+  }
   return (
     <div
       className={cn(

@@ -43,7 +43,6 @@ const MeetingTypeList = () => {
             header={type.header}
             subHeader={type.subHeader}
             icon={type.icon}
-            color={type.color}
             handleClick={handleClick}
           />
         );
