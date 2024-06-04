@@ -1,6 +1,6 @@
 "use client";
 import {
-  //   DeviceSettings,
+  DeviceSettings,
   VideoPreview,
   useCall,
 } from "@stream-io/video-react-sdk";
@@ -43,7 +43,7 @@ const MeetingSetup = ({
           />
           Join with mic and camera off
         </label>
-        {/* <DeviceSettings /> */}
+        <DeviceSettings />
       </div>
       <Button
         className="rounded-md bg-green-500 px-4 py-2.5 hover:bg-green-800"
