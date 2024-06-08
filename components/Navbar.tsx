@@ -13,14 +13,12 @@ const Navbar = () => {
           height={50}
           width={50}
           alt="Beam logo"
-          className="max-sm:size-10 max-sm:hidden"
+          className="max-sm:size-10"
         />
-        <p className="text-[26px] font-extrabold text-white max-sm:hidden">
-          Beam
-        </p>
+        <p className="text-[26px] font-extrabold text-white ">Beam</p>
       </Link>
-      <div className="flex flex-1 justify-between">
-        <MobileNav />
+      <div className="flex">
+        {/* <MobileNav /> */}
         <SignedIn>
           <UserButton />
         </SignedIn>
