@@ -179,7 +179,7 @@ const MeetingTypeList = () => {
         onClose={() => setMeetingState(undefined)}
         title="Input link here"
         className="text-center"
-        buttonText="Joins Meeting"
+        buttonText="Join Meeting"
         handleClick={startMeeting}
       >
         <Input
