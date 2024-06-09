@@ -9,7 +9,7 @@ import React from "react";
 const Sidebar = () => {
   const pathName = usePathname();
   return (
-    <section className="sticky top-[25%] max-sm:top-[30%] left-4 flex flex-col h-fit w-fit justify-between bg-dark-1 p-6 max-sm:px-1 text-white rounded-3xl">
+    <section className="sticky hidden md:flex md:flex-col top-[25%] left-4 h-fit min-w-fit justify-between bg-dark-1 p-6 text-white rounded-3xl">
       <div className="flex flex-1 flex-col gap-6">
         {sideBarLinks.map((link) => {
           const isActive = pathName === link.route;
@@ -18,7 +18,7 @@ const Sidebar = () => {
               href={link.route}
               key={link.label}
               className={cn(
-                "flex gap-4 p-3 max-sm:px-2 items-center justify-start rounded-xl",
+                "flex gap-4 p-3 items-center justify-start rounded-xl lg:px-2",
                 {
                   "bg-blue-500": isActive,
                 }
@@ -29,9 +29,8 @@ const Sidebar = () => {
                 alt={link.label}
                 width={24}
                 height={24}
-                className="max-sm:size-4"
               />
-              <p className="text-lg font-semibold max-lg:hidden">
+              <p className="text-lg lg:text-sm font-semibold max-lg:hidden min-w-fit">
                 {link.label}
               </p>
             </Link>
