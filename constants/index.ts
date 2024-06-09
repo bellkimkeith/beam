@@ -22,7 +22,7 @@ export const sideBarLinks = [
   {
     label: "My Room",
     route: "/personal",
-    imgUrl: "/icons/personal.svg",
+    imgUrl: "/icons/person.svg",
   },
 ];
 
