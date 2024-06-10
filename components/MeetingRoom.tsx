@@ -1,3 +1,4 @@
+"use client";
 import { cn } from "@/lib/utils";
 import {
   CallControls,
@@ -18,8 +19,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LayoutList, Users } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Loader from "./Loader";
+import { Button } from "./ui/button";
+import Image from "next/image";
+import { useToast } from "./ui/use-toast";
 
 type CallLayoutType = "grid" | "speaker-left" | "speaker-right";
 
@@ -30,8 +34,17 @@ const MeetingRoom = () => {
   const callingState = useCallCallingState();
   const router = useRouter();
   const call = useCall();
+  const { toast } = useToast();
+  const pathname = usePathname();
+  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`;
 
-  if (callingState !== CallingState.JOINED) return <Loader />;
+  if (callingState === CallingState.OFFLINE) {
+    return (
+      <h1 className="flex justify-center items-center font-semibold">
+        Call offline
+      </h1>
+    );
+  } else if (callingState !== CallingState.JOINED) return <Loader />;
 
   const CallLayout = () => {
     switch (layout) {
@@ -99,6 +112,18 @@ const MeetingRoom = () => {
             <Users size={20} className="text-white" />
           </div>
         </button>
+        <Button
+          onClick={() => {
+            navigator.clipboard.writeText(meetingLink);
+            toast({
+              title: "Link Copied",
+            });
+          }}
+          className="bg-[#19232d] hover:bg-[#4c535b] px-6"
+        >
+          <Image src="/icons/copy.svg" alt="feature" width={20} height={20} />
+          &nbsp; Copy Link
+        </Button>
       </div>
     </section>
   );
